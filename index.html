@@ -18,7 +18,9 @@
 </head>
 <body>
     <div class="container">
+      <div class="weather-app-wrapper">
       <div class="weather-app">
+        <div class="overview">
       <h1>
         My Weather App
       </h1>
@@ -26,10 +28,17 @@
         <li>Sunday 2.15pm</li>
         <li> Clear</li>
       </ul>
+    </div>
       <div class = "row">
         <div class ="col-md-6">
-          <img src = "http://openweathermap.org/img/wn/01d@2x.png" alt ="Clear"/>
-          14&#176C | &#176F
+        <div class="clearfix weather-temperature" >
+          <img src = "http://openweathermap.org/img/wn/01d@2x.png"
+           alt ="Clear"
+           class="float-left"/>
+          <div class="float-left">
+         <strong>14</strong> <span class="units">&#176C | <a href="#">&#176F</a></span>
+        </div>
+        </div>
         </div>
         <div class="col-md-6">
           <ul>
@@ -44,15 +53,15 @@
             </li>
 
           </ul>
+
         </div>
       </div>
-    
+    </div>
       <small>
         <a href = "https://github.com/raribencchi/WK8-FinalProject" target="_blank">
           Open Source Code</a> by Rashmi Aribenchi </small>
-       
         </div>
-    </div>
+        </div>
     <script src = "src/index.js"></script>
 </body>
 </html>
