@@ -48,19 +48,35 @@ function displayTemperature(response) {
 
     iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+// function to find city searched through API
 
-
-
-
-//API call using api key
+function search(city) {
+    //API call using api key
 let apiKey = "2abed27801bd63fe3e39896675495cfd";
-let city = "Mumbai"
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-console.log(apiUrl);
+//console.log(apiUrl);
 
 // connect to axios to interact with api 
 axios.get(apiUrl).then(displayTemperature);
+
+}
+
+//Function to link search results
+function handleSearch(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+    console.log(cityInputElement.value);
+}
+
+search("New York");
+
+//linking search results
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSearch);
+
 
 
 
