@@ -20,7 +20,7 @@ function formatDate(timeStamp) {
 
 // define functions for each elements
 function displayTemperature(response) {
-    console.log(response.data);
+   // console.log(response.data);
 
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = response.data.name;
@@ -39,18 +39,27 @@ function displayTemperature(response) {
 
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate (response.data.dt * 1000);
+
+    let iconElement = document.querySelector("#icon");
+    //instead of using innerhtml use setAttribute to change the feature of an element
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+    //setAttribute for icon description
+
+    iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 
 
 
 //API call using api key
 let apiKey = "2abed27801bd63fe3e39896675495cfd";
-
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Auckland&appid=${apiKey}&units=metric`;
+let city = "Mumbai"
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 console.log(apiUrl);
 
-// connect with axios to interact with api by declaring the functions
+// connect to axios to interact with api 
 axios.get(apiUrl).then(displayTemperature);
 
 
