@@ -1,5 +1,24 @@
-// define functions for each elements
+//Calculate date
+function formatDate(timeStamp) {
+    let date = new Date(timeStamp);
 
+    let hours = date.getHours();
+    if (hours <10) {
+        hours = 0 + hours;
+    }
+
+    let minutes = date.getMinutes();
+    if (minutes <10) {
+        minutes = 0 + minutes;
+    }
+
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = days[date.getDay()];
+
+    return day + hours + ":" + minutes;
+}
+
+// define functions for each elements
 function displayTemperature(response) {
     console.log(response.data);
 
@@ -17,6 +36,9 @@ function displayTemperature(response) {
     
     let windElement = document.querySelector("#wind");
     windElement.innerHTML = Math.round (response.data.wind.speed);
+
+    let dateElement = document.querySelector("#date");
+    dateElement.innerHTML = formatDate (response.data.dt * 1000);
 }
 
 
@@ -24,7 +46,7 @@ function displayTemperature(response) {
 //API call using api key
 let apiKey = "2abed27801bd63fe3e39896675495cfd";
 
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Perth&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Auckland&appid=${apiKey}&units=metric`;
 
 console.log(apiUrl);
 
