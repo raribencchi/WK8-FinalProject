@@ -22,6 +22,7 @@ li {
     color: rgb(135,135,135);
     font-size: 16px;
     font-weight: 100;
+    text-transform: capitalize;
 }
 
 .weather-app-wrapper {
@@ -42,9 +43,10 @@ li {
 }
 
 .weather-temperature img {
-    margin-right: 5px;
-    height:70px;
-    width: 70px;
+    margin-right: 1px;
+    height:100px;
+    width: 100px;
+  
 }
 
 .weather-temperature strong {
