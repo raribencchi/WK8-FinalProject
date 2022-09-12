@@ -31,15 +31,15 @@ return days[day];
 
 function displayForecast(response) {
 
-   // console.log(response.data.daily);
+    console.log(response.data.daily);
 
-    let forecast = response.data.daily;
+    //let forecast = response.data.daily;
 
     let forecastElement = document.querySelector("#forecast")
     
     let forecastHTML = `<div class="row">`;
 
-      forecast.forEach(function(forecastDay, index) {
+    forecast.forEach(function(forecastDay, index) {
     if (index < 6) {
 
 //concatenating the function
@@ -52,17 +52,23 @@ forecastHTML = forecastHTML +
       <span class="weather-forecaste-temperature-max">${Math.round(forecastDay.temp.max)}&#176</span>/<span class="weather-forecaste-temperature-min">${Math.round(forecastDay.temp.min)}&#176</span>  
     </div>                   
   </div>
-</div>`;
+</div>
+`;}  
 
-}  
-
-})
-       
+});
+      
 forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+ }
 
-    forecastElement.innerHTML = forecastHTML;
- 
-  }
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "49e5da6325b173bba5c08dae7a5eba79";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+//console.log(apiUrl);
+axios.get(apiUrl).then(displayForecast);
+
+}
 
 // define functions for each elements
 function displayTemperature(response) {
@@ -97,12 +103,16 @@ function displayTemperature(response) {
     //setAttribute for icon description
 
     iconElement.setAttribute("alt", response.data.weather[0].description);
+
+
+
+    getForecast(response.data.coord);
 }
 // function to find city searched through API
 
 function search(city) {
     //API call using api key
-let apiKey = "2abed27801bd63fe3e39896675495cfd";
+let apiKey = "49e5da6325b173bba5c08dae7a5eba79";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 //console.log(apiUrl);
@@ -147,7 +157,6 @@ function displaycelsiusTemperature(event) {
 let celsiusTemperature = null;
 
 search("New York");
-displayForecast();
 
 //linking search results
 
@@ -161,9 +170,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displaycelsiusTemperature);
-
-
-
-
-
-
