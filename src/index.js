@@ -20,28 +20,43 @@ function formatDate(timeStamp) {
 
 // bring future week weather forecast to JS file and call it through function
 
-function displayForecast() {
+function formatDay(timestamp) {
+let date = new Date (timestamp*1000);
+let day = date.getDay();
+let days = ["Mon", "Tue","Wed","Thu", "Fri", "Sat"]
+
+return days[day];
+}
+
+
+function displayForecast(response) {
+
+   // console.log(response.data.daily);
+
+    let forecast = response.data.daily;
 
     let forecastElement = document.querySelector("#forecast")
-   
+    
     let forecastHTML = `<div class="row">`;
 
-    let days = ["Mon", "Tue","Wed","Thu", "Fri", "Sat"]
-    days.forEach(function(day) {
+      forecast.forEach(function(forecastDay, index) {
+    if (index < 6) {
 
- //concatenating the function
+//concatenating the function
 forecastHTML = forecastHTML +
 `<div class="col-2">
-  <div class="weather-forecast-date">${day}</div>
-   <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="42"/>
+  <div class="weather-forecast-date">${forecastDay.dt}</div>
+   <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42"/>
   <div class= "weather-forecst-temperatures">
     <div class="weather-forecaste-temperature">
-      <span class="weather-forecaste-temperature-max">22&#176</span>/<span class="weather-forecaste-temperature-min">10&#176</span>  
+      <span class="weather-forecaste-temperature-max">${Math.round(forecastDay.temp.max)}&#176</span>/<span class="weather-forecaste-temperature-min">${Math.round(forecastDay.temp.min)}&#176</span>  
     </div>                   
   </div>
 </div>`;
 
-    })
+}  
+
+})
        
 forecastHTML = forecastHTML + `</div>`;
 
