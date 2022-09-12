@@ -18,6 +18,36 @@ function formatDate(timeStamp) {
     return day + hours + ":" + minutes;
 }
 
+// bring future week weather forecast to JS file and call it through function
+
+function displayForecast() {
+
+    let forecastElement = document.querySelector("#forecast")
+   
+    let forecastHTML = `<div class="row">`;
+
+    let days = ["Mon", "Tue","Wed","Thu", "Fri", "Sat"]
+    days.forEach(function(day) {
+
+ //concatenating the function
+forecastHTML = forecastHTML +
+`<div class="col-2">
+  <div class="weather-forecast-date">${day}</div>
+   <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="42"/>
+  <div class= "weather-forecst-temperatures">
+    <div class="weather-forecaste-temperature">
+      <span class="weather-forecaste-temperature-max">22&#176</span>/<span class="weather-forecaste-temperature-min">10&#176</span>  
+    </div>                   
+  </div>
+</div>`;
+
+    })
+       
+forecastHTML = forecastHTML + `</div>`;
+
+    forecastElement.innerHTML = forecastHTML;
+ 
+  }
 
 // define functions for each elements
 function displayTemperature(response) {
@@ -102,6 +132,7 @@ function displaycelsiusTemperature(event) {
 let celsiusTemperature = null;
 
 search("New York");
+displayForecast();
 
 //linking search results
 
