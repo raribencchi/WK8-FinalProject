@@ -18,6 +18,7 @@ function formatDate(timeStamp) {
     return day + hours + ":" + minutes;
 }
 
+
 // define functions for each elements
 function displayTemperature(response) {
    // console.log(response.data);
