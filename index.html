@@ -20,9 +20,9 @@
     <title>WK8-FinalProject</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container ">
       <div class="weather-app-wrapper">
-      <div class="weather-app">
+      <div class="weather-app p-5">
         <form id = "search-form" class = "mb-3">
         <div class="row">
           <div class="col-9">
@@ -36,7 +36,7 @@
         <div class="col-3">
           <input type="submit"
           value="Search"
-          class="btn btn-secondary w-100"/>
+          class="btn btn-secondary w-100 shadow-xl bg-gradient" />
           </div>
         </div>
         </form>
@@ -57,7 +57,7 @@
           <div class="float-left">
          <strong id="temperature"></strong> 
          <span class="units"> <a href="#" id = "celsius-link" class="active">&#176C </a> | 
-          <a href="#" id="fahrenheit-link">&#176F</a></span>
+          <a href="#" id="fahrenheit-link" class="text-dark text-decoration-none">&#176F</a></span>
         </div>
         </div>
         </div>
@@ -69,10 +69,12 @@
           </ul>
         </div>
 
-        <div class="weather-forecast" id="forecast">
+        <div class="weather-forecast p-5" id="forecast" >
+          <div class="d-fex justify-content-evenly">
           </div>
           </div>
         </div>
+      </div>
     </div>
       <strong class="mycode">
         <a href = "https://github.com/raribencchi/WK8-FinalProject" target="_blank">

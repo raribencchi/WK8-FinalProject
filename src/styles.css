@@ -27,7 +27,7 @@ li {
     list-style: none;
     margin: 0;
     padding: 0;
-    color:whitesmoke;
+    color:black;
     font-size: 16px;
     font-weight: 100;
     
@@ -41,7 +41,7 @@ li:first-letter {
  display: flex;
  justify-content:center;
  font-size: 15px;
- color: #fff;
+ color: rgb(14, 12, 12);
 
 }
 
@@ -49,13 +49,14 @@ li:first-letter {
     max-width: 600px;
     margin: 30px auto;
     box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .weather-app{
     max-width: 600px;
     margin: 30px auto;
     padding:25px;
-    border: 1px solid rgb(73, 72, 72);
+    border: 2px solid rgb(73, 72, 72);
     border-radius: 10px;
     background-color:linear-gradient(to top, #fff 0%, #6fa0f5 100%);
    
@@ -116,7 +117,7 @@ li:first-letter {
 
 .weather-forecaste-temperature-min {
     opacity: 0.5;
-    color:rgb(37, 36, 36);
+    color:black;
 }
 
 .active {
